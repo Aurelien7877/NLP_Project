@@ -104,6 +104,10 @@ def classify_reviews_batch(reviews, threshold=0.0, expected_label='Positive'):
 
 
 # Streamlit app
+# Specify NLTK data path
+nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
+nltk.data.path.append(nltk_data_path)
+
 st.title("WP2 Aurélien Pouxviel : Movie Review Sentiment Analysis App")
 
 review = st.text_area("Enter a movie review :) ")
