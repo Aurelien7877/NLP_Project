@@ -5,6 +5,11 @@ from nltk.corpus import sentiwordnet as swn
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.tag import pos_tag
 
+
+nltk.download('sentiwordnet')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
 def load_reviews_from_directory(directory):
     reviews = []
     labels = []
