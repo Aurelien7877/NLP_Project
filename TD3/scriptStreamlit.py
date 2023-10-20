@@ -9,26 +9,23 @@ import numpy as np
 
 import pickle
 
-def loadCNN():
-	file = open("CNNArticles",'rb')
-	articles = pickle.load(file)
-	file = open("CNNGold",'rb')
-	abstracts = pickle.load(file)
 
-	articlesCl = []  
-	for article in articles:
-		articlesCl.append(article.replace("”", "").rstrip("\n"))
-	articles = articlesCl
-	  
-	articlesCl = []  
-	for article in abstracts:
-		articlesCl.append(article.replace("”", "").rstrip("\n"))
-	abstracts = articlesCl
+file = open("./CNNArticles",'rb')
+articles = pickle.load(file)
+file = open("./CNNGold",'rb')
+abstracts = pickle.load(file)
+
+articlesCl = []  
+for article in articles:
+    articlesCl.append(article.replace("”", "").rstrip("\n"))
+articles = articlesCl
     
-	return articles, abstracts
+articlesCl = []  
+for article in abstracts:
+    articlesCl.append(article.replace("”", "").rstrip("\n"))
+abstracts = articlesCl
+    
 
-
-articles, abstracts = loadCNN()
 tfidf_vectorizer = TfidfVectorizer()
 article_tfidf_matrix = tfidf_vectorizer.fit_transform(articles)
 summary_tfidf_matrix = tfidf_vectorizer.transform(abstracts)
