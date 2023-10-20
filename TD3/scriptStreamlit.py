@@ -9,14 +9,9 @@ import numpy as np
 
 import pickle
 
-script_dir = os.path.dirname(__file__)
-file_path = os.path.join(script_dir,'CNNArticles')
-filepath2 = os.path.join(script_dir,'CNNGold')
-
-file = open(file_path,'rb')
+file = open("https://github.com/Aurelien7877/NLP_Project/blob/master/TD3/CNNArticles",'rb')
 articles = pickle.load(file)
-
-file = open(filepath2,'rb')
+file = open("https://github.com/Aurelien7877/NLP_Project/blob/master/TD3/CNNGold",'rb')
 abstracts = pickle.load(file)
 
 articlesCl = []  
