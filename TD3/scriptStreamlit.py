@@ -29,4 +29,3 @@ if user_input:
     st.write(articles[most_similar_article_index])
     st.subheader(f"Similarity Score:")
     st.write(np.max(user_cosine_similarities))
-    
