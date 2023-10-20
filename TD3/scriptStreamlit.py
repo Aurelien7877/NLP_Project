@@ -10,9 +10,9 @@ import numpy as np
 import pickle
 
 def loadCNN():
-	file = open("./CNNArticles",'rb')
+	file = open("CNNArticles",'rb')
 	articles = pickle.load(file)
-	file = open("./CNNGold",'rb')
+	file = open("CNNGold",'rb')
 	abstracts = pickle.load(file)
 
 	articlesCl = []  
@@ -26,8 +26,6 @@ def loadCNN():
 	abstracts = articlesCl
     
 	return articles, abstracts
-
-articles, abstracts = loadCNN()
 
 
 articles, abstracts = loadCNN()
