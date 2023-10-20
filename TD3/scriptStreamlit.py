@@ -10,9 +10,9 @@ import numpy as np
 import pickle
 
 
-file = open("./CNNArticles",'rb')
+file = open("Aurelien7877/NPL_project/TD3/CNNArticles",'rb')
 articles = pickle.load(file)
-file = open("./CNNGold",'rb')
+file = open("Aurelien7877/NPL_project/TD3//CNNGold",'rb')
 abstracts = pickle.load(file)
 
 articlesCl = []  
