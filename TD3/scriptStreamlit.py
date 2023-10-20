@@ -5,13 +5,13 @@ from sklearn.metrics.pairwise import linear_kernel
 import os
 import sys
 import numpy as np
-#sys.path.insert(0,'C:/Users/aurel/OneDrive - De Vinci/ONE DRIVE PC/A5/NLP/TD3/loadCNN.py')
+
 
 import pickle
 
-file = open("https://github.com/Aurelien7877/NLP_Project/blob/master/TD3/CNNArticles",'rb')
+file = open("CNNArticles",'rb')
 articles = pickle.load(file)
-file = open("https://github.com/Aurelien7877/NLP_Project/blob/master/TD3/CNNGold",'rb')
+file = open("CNNGold",'rb')
 abstracts = pickle.load(file)
 
 articlesCl = []  
