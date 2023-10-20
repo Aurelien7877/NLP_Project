@@ -12,7 +12,7 @@ import pickle
 
 file = open("Aurelien7877/NPL_project/TD3/CNNArticles",'rb')
 articles = pickle.load(file)
-file = open("Aurelien7877/NPL_project/TD3//CNNGold",'rb')
+file = open("Aurelien7877/NPL_project/TD3/CNNGold",'rb')
 abstracts = pickle.load(file)
 
 articlesCl = []  
