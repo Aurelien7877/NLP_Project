@@ -49,18 +49,23 @@ st.markdown(
 
 user_input = st.text_input("💡 Enter some words to find similar articles ​💡:")
 
+
 # Button to trigger the action
-if st.button("Find Similar Articles 🔎​🤔​"):
+if st.button("Find Similar Articles 🔎​🤔"):
     if user_input:
-        # Loading bar
-        with st.spinner("Finding similar articles..."):
-            user_input_vector = tfidf_vectorizer.transform([user_input])
-            user_cosine_similarities = linear_kernel(user_input_vector, article_tfidf_matrix)
+        # Create a placeholder for the loading spinner
+        progress_bar = st.empty()
 
-            # Find the top 2 similar articles
-            most_similar_article_indices = np.argsort(user_cosine_similarities[0])[-2:][::-1]
+        # Calculate similar articles
+        user_input_vector = tfidf_vectorizer.transform([user_input])
+        user_cosine_similarities = linear_kernel(user_input_vector, article_tfidf_matrix)
 
-        st.subheader("💎​Top 2​ Most Similar Articles 💎​ ")
+        # Find the top 2 similar articles
+        most_similar_article_indices = np.argsort(user_cosine_similarities[0])[-2:][::-1]
+
+        progress_bar.empty()  # Remove the loading spinner
+
+        st.subheader("💎 Top 2 Most Similar Articles 💎")
 
         for i, index in enumerate(most_similar_article_indices):
             st.subheader(f"Article {i + 1} (Similarity Score: {user_cosine_similarities[0][index]:.2f}):")
