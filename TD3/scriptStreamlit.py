@@ -9,10 +9,21 @@ import numpy as np
 
 import pickle
 
-file = open("TD3/CNNArticles",'rb')
-articles = pickle.load(file)
-file = open("TD3/CNNGold",'rb')
-abstracts = pickle.load(file)
+
+# Get the directory of the current script
+script_dir = os.path.dirname(__file__)
+
+# Create file paths relative to the script's location
+articles_path = os.path.join(script_dir, 'CNNArticles')
+abstracts_path = os.path.join(script_dir, 'CNNGold')
+
+
+# Open and load the data
+with open(articles_path, 'rb') as file:
+    articles = pickle.load(file)
+
+with open(abstracts_path, 'rb') as file:
+    abstracts = pickle.load(file)
 
 articlesCl = []  
 for article in articles:
