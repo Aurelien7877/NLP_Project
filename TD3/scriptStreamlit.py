@@ -40,18 +40,23 @@ tfidf_vectorizer = TfidfVectorizer()
 article_tfidf_matrix = tfidf_vectorizer.fit_transform(articles)
 summary_tfidf_matrix = tfidf_vectorizer.transform(abstracts)
 
-st.title("WP3 :  Aurelien Pouxviel : Article Similarity App")
+st.title("WP3: Aurelien Pouxviel: Article Similarity App ")
 
 user_input = st.text_input("Enter some words to find similar articles:")
+
 if user_input:
-
+    st.text("Finding similar articles... ⏳")
+    
     user_input_vector = tfidf_vectorizer.transform([user_input])
-
     user_cosine_similarities = linear_kernel(user_input_vector, article_tfidf_matrix)
+    
+    # Find the top 2 similar articles
+    most_similar_article_indices = np.argsort(user_cosine_similarities[0])[-2:][::-1]
+    
+    st.subheader("Top 2💎​ Most Similar Articles:")
+    
+    for i, index in enumerate(most_similar_article_indices):
+        st.subheader(f"Article {i + 1} (Similarity Score: {user_cosine_similarities[0][index]:.2f}):")
+        st.write(articles[index])
 
-    most_similar_article_index = np.argmax(user_cosine_similarities)
-
-    st.subheader(f"Most Similar Article:")
-    st.write(articles[most_similar_article_index])
-    st.subheader(f"Similarity Score:")
-    st.write(np.max(user_cosine_similarities))
+    st.text("Search completed! ✅")
