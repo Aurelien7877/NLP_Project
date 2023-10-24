@@ -47,7 +47,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-user_input = st.text_input("Enter some words to find similar articles 🔎​🤔:")
+user_input = st.text_input("💡 Enter some words to find similar articles ​💡:")
 
 # Button to trigger the action
 if st.button("Find Similar Articles 🔎​🤔​"):
