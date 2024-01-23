@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import torch
+import os
 import plotly.express as px
 from sentence_transformers import SentenceTransformer, util
 from transformers import pipeline
@@ -9,7 +10,13 @@ from transformers import pipeline
 #tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/distilbert-base-nli-mean-tokens")
 #model = AutoModel.from_pretrained("sentence-transformers/distilbert-base-nli-mean-tokens")
 
-df = pd.read_json('df_QA.json', lines=True, convert_axes=False)
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Construire le chemin complet vers le fichier df_QA.json
+file_path = os.path.join(script_directory, 'df_QA.json')
+
+# Lire le fichier JSON
+df = pd.read_json(file_path, lines=True, convert_axes=False)
 
 # Titre de l'application
 st.title("Visualisation d'Embeddings en 3D et Fonctionnalités NLP - Par Maud Tissot et Aurélien Pouxviel")
