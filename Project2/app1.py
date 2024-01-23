@@ -9,7 +9,7 @@ from transformers import pipeline
 #tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/distilbert-base-nli-mean-tokens")
 #model = AutoModel.from_pretrained("sentence-transformers/distilbert-base-nli-mean-tokens")
 
-df = pd.read_json('C:/Users/aurel/OneDrive - De Vinci/ONE DRIVE PC/A5/NLP/Project2/df_QA.json', lines=True,convert_axes=False)
+df = pd.read_json('df_QA.json', lines=True, convert_axes=False)
 
 # Titre de l'application
 st.title("Visualisation d'Embeddings en 3D et Fonctionnalités NLP - Par Maud Tissot et Aurélien Pouxviel")
